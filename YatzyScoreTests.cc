@@ -13,3 +13,14 @@ TEST(YatzyScore, pair_example) {
 TEST(YatzyScore, pair_nopair) {
   EXPECT_EQ(0, YatzyScore::bestPair({2, 3, 4, 5, 6})); //
 }
+
+TEST(YatzyScore, smallStraight_example) {
+  EXPECT_EQ(15, YatzyScore::smallStraight({1, 2, 5, 4, 3})); //
+}
+TEST(YatzyScore, smallStraight_nostraight) {
+  EXPECT_EQ(0, YatzyScore::smallStraight({5, 2, 5, 4, 3})); //
+}
+
+TEST(YatzyScore, chance) {
+  EXPECT_EQ(19, YatzyScore::chance({5, 2, 5, 4, 3})); //
+}
