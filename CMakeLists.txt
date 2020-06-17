@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.15.0)
-project(MyApp)
+project(YatzyApp)
 enable_testing()
 
 set (CMAKE_CXX_STANDARD 11)
@@ -13,44 +13,44 @@ target_compile_definitions(gtest
 )
 
 # domain library
-add_library(mylib)
-target_sources(mylib
+add_library(yatzylib)
+target_sources(yatzylib
     PRIVATE
-        MyClass.cc
+        YatzyScore.cc
     PUBLIC
-        MyClass.h
+        YatzyScore.h
 )
-set_target_properties(mylib PROPERTIES
+set_target_properties(yatzylib PROPERTIES
     COMPILE_FLAGS "${cxx_strict}"
 )
 
-# text tests
-add_executable(app)
-target_sources(app
+# app
+add_executable(yatzy)
+target_sources(yatzy
     PRIVATE
-        MyApp.cc
+        YatzyApp.cc
 )
-set_target_properties(app PROPERTIES
+set_target_properties(yatzy PROPERTIES
     COMPILE_FLAGS "${cxx_strict}"
 )
-target_link_libraries(app
+target_link_libraries(yatzy
     PRIVATE
-        mylib
+        yatzylib
 )
 
 # unit tests
-add_executable(my_tests)
-target_sources(my_tests
+add_executable(yatzy_tests)
+target_sources(yatzy_tests
     PRIVATE
-        MyUnitTests.cc
+        YatzyScoreTests.cc
 )
-set_target_properties(my_tests PROPERTIES
+set_target_properties(yatzy_tests PROPERTIES
     COMPILE_FLAGS "${cxx_strict}"
 )
-target_link_libraries(my_tests
+target_link_libraries(yatzy_tests
     PRIVATE
-        mylib
+        yatzylib
         gtest
         gtest_main
 )
-add_test(my_tests my_tests)
+add_test(yatzy_tests yatzy_tests)

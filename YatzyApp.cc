@@ -1,4 +1,4 @@
-#include "MyClass.h"
+#include "YatzyScore.h"
 
 #include <iostream>
 
